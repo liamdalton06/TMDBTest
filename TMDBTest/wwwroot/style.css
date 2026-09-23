@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: darkslateblue;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.head,
+main {
+    width: min(1200px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.head {
+    padding-block: 36px 28px;
+}
+
+.head h1 {
+    margin: 0 0 24px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+}
+
+.search-form {
+    max-width: 700px;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.search-controls {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.search-bar {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    border: 1px solid #aaa;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 16px;
+}
+
+.search-bar:focus {
+    outline: 2px solid cadetblue;
+    outline-offset: 2px;
+}
+
+.search-btn {
+    min-height: 44px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    background-color: cadetblue;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-btn:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.search-btn:focus-visible,
+.movie-card:focus-visible {
+    outline: 3px solid cadetblue;
+    outline-offset: 3px;
+}
+
+.status-message {
+    min-height: 24px;
+    margin: 0 0 16px;
+    font-size: 1rem;
+}
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 24px;
+    padding: 24px;
+    border-radius: 12px;
+    background-color: rgb(35, 35, 35);
+}
+
+#results:empty {
+    display: none;
+}
+
+.movie-poster {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.movie-card {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: darkslateblue;
+    color: lightgray;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 30%);
+}
+
+.movie-card-details {
+    padding: 14px;
+}
+
+.movie-card h2 {
+    display: -webkit-box;
+    min-height: 2.5em;
+    margin: 0 0 12px;
+    overflow: hidden;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.vote-average {
+    margin: 0 0 6px;
+    color: goldenrod;
+    font-weight: 600;
+}
+
+.release-date {
+    margin: 0;
+    color: lightgray;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .head,
+    main {
+        width: min(100% - 24px, 1200px);
+    }
+
+    .head {
+        padding-block: 24px 20px;
+    }
+
+    .search-controls {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    #results {
+        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+        gap: 14px;
+        padding: 14px;
+    }
+
+    .movie-card-details {
+        padding: 12px;
+    }
+}
