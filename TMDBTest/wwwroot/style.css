@@ -84,6 +84,16 @@ main {
     font-size: 1rem;
 }
 
+.results-heading {
+    margin-bottom: 14px;
+}
+
+.results-heading h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+}
+
 #results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));

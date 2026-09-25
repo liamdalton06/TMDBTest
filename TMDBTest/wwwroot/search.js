@@ -3,19 +3,19 @@ const form = document.getElementById("search-form");
 const button = form.querySelector("button");
 const results = document.getElementById("results");
 const status = document.getElementById("search-status");
+const resultsHeading = document.getElementById("results-heading");
+const resultsTitle = document.getElementById("results-title");
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = input.value.trim();
-    results.textContent = "";
-
     if (!name) {
-        status.textContent = "Enter a movie title to start searching.";
-        input.focus();
+        await loadTopRatedMovies();
         return;
     }
 
+    clearResults();
     status.textContent = "Searching for movies...";
     button.disabled = true;
 
@@ -37,17 +37,56 @@ form.addEventListener("submit", async (event) => {
         }
 
         status.textContent = `${movies.length} movies found.`;
-
-        for (const movie of movies) {
-            const card = createMovieCard(movie);
-            results.appendChild(card);
-        }
+        showMovies(movies, "Search results");
     } catch (error) {
         status.textContent = error.message;
     } finally {
         button.disabled = false;
     }
 });
+
+async function loadTopRatedMovies() {
+    clearResults();
+    status.textContent = "Loading top rated movies...";
+    button.disabled = true;
+
+    try {
+        const response = await fetch("/api/movies/top-rated");
+
+        if (!response.ok) {
+            throw new Error("Top rated movies could not be loaded.");
+        }
+
+        const result = await response.json();
+        const movies = result?.results ?? [];
+
+        if (movies.length === 0) {
+            status.textContent = "No top rated movies are available right now.";
+            return;
+        }
+
+        status.textContent = "";
+        showMovies(movies, "Top rated movies");
+    } catch (error) {
+        status.textContent = "Top rated movies could not be loaded.";
+    } finally {
+        button.disabled = false;
+    }
+}
+
+function showMovies(movies, title) {
+    resultsTitle.textContent = title;
+    resultsHeading.hidden = false;
+
+    for (const movie of movies) {
+        results.appendChild(createMovieCard(movie));
+    }
+}
+
+function clearResults() {
+    results.textContent = "";
+    resultsHeading.hidden = true;
+}
 
 function createMovieCard(movie) {
     const card = document.createElement("a");
@@ -97,3 +136,5 @@ function createPosterPlaceholder() {
 
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
+
+loadTopRatedMovies();
