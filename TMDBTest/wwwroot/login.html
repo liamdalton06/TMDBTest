@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in | Movie browser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="account.css">
+</head>
+<body>
+    <header class="head account-header">
+        <h1>Movie browser</h1>
+        <a class="account-link" href="index.html">Back to movies</a>
+    </header>
+    <main class="account-main">
+        <section class="account-panel" aria-labelledby="account-title">
+            <h2 id="account-title">Sign in</h2>
+            <p class="account-intro">Welcome back to Movie browser.</p>
+            <!-- Visual scaffold only. Connect submission to authentication later. -->
+            <form id="login-form" class="account-form" onsubmit="return false;" aria-describedby="preview-note">
+                <div class="account-field">
+                    <label for="login-email">Email</label>
+                    <input class="search-bar" id="login-email" name="email" type="email" autocomplete="username" placeholder="you@example.com">
+                </div>
+                <div class="account-field">
+                    <label for="login-password">Password</label>
+                    <input class="search-bar" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password">
+                </div>
+                <button class="search-btn account-button" type="button" aria-describedby="preview-note">Sign in</button>
+            </form>
+            <p class="account-note" id="preview-note">Preview only. Sign-in is not available yet.</p>
+            <p class="account-switch">New here? <a class="account-link" href="signup.html">Create an account</a></p>
+        </section>
+    </main>
+</body>
+</html>

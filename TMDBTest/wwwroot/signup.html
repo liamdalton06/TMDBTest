@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create account | Movie browser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="account.css">
+</head>
+<body>
+    <header class="head account-header">
+        <h1>Movie browser</h1>
+        <a class="account-link" href="index.html">Back to movies</a>
+    </header>
+    <main class="account-main">
+        <section class="account-panel" aria-labelledby="account-title">
+            <h2 id="account-title">Create an account</h2>
+            <p class="account-intro">A place for your next movie night.</p>
+            <!-- Visual scaffold only. Connect submission and validation later. -->
+            <form id="signup-form" class="account-form" onsubmit="return false;" aria-describedby="preview-note">
+                <div class="account-field">
+                    <label for="signup-name">Display name</label>
+                    <input class="search-bar" id="signup-name" name="displayName" type="text" autocomplete="nickname" placeholder="Your display name">
+                </div>
+                <div class="account-field">
+                    <label for="signup-email">Email</label>
+                    <input class="search-bar" id="signup-email" name="email" type="email" autocomplete="username" placeholder="you@example.com">
+                </div>
+                <div class="account-field">
+                    <label for="signup-password">Password</label>
+                    <input class="search-bar" id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Choose a password">
+                </div>
+                <div class="account-field">
+                    <label for="signup-confirm-password">Confirm password</label>
+                    <input class="search-bar" id="signup-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Repeat your password">
+                </div>
+                <button class="search-btn account-button" type="button" aria-describedby="preview-note">Create account</button>
+            </form>
+            <p class="account-note" id="preview-note">Preview only. Registration is not available yet.</p>
+            <p class="account-switch">Already have an account? <a class="account-link" href="login.html">Sign in</a></p>
+        </section>
+    </main>
+</body>
+</html>

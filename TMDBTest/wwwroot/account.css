@@ -1,0 +1,78 @@
+.account-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.account-header h1 {
+    margin-bottom: 0;
+}
+
+.account-main {
+    padding-block: 12px 48px;
+}
+
+.account-panel {
+    width: min(100%, 460px);
+    margin-inline: auto;
+    padding: 32px;
+    border-radius: 15px;
+    background-color: rgb(35, 35, 35);
+}
+
+.account-panel h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    line-height: 1.2;
+}
+
+.account-intro {
+    margin: 0 0 28px;
+    line-height: 1.5;
+}
+
+.account-form {
+    display: grid;
+    gap: 18px;
+}
+
+.account-field label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.account-field input {
+    width: 100%;
+    font-family: inherit;
+}
+
+.account-button {
+    width: 100%;
+    margin-top: 6px;
+    font-family: inherit;
+}
+
+.account-note {
+    margin: 16px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.account-switch {
+    margin: 24px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid rgb(211 211 211 / 20%);
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .account-main {
+        padding-top: 0;
+    }
+
+    .account-panel {
+        padding: 24px 20px;
+    }
+}

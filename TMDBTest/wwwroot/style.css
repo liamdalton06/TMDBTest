@@ -30,6 +30,37 @@ main {
     max-width: 700px;
 }
 
+.home-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 24px;
+}
+
+.home-heading h1 {
+    margin-bottom: 0;
+}
+
+.account-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: lightgray;
+    text-underline-offset: 4px;
+}
+
+.account-link:hover {
+    color: cadetblue;
+}
+
+.account-link:focus-visible {
+    outline: 2px solid cadetblue;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 .search-form label {
     display: block;
     margin-bottom: 8px;
