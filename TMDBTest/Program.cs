@@ -1,9 +1,15 @@
 using System.Text.Json;
 using TMDBTest;
+using Microsoft.EntityFrameworkCore;
+using TMDBTest.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
+var app = builder.Build();  
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
